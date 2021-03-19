@@ -143,12 +143,13 @@ IF(WIN32)
 ENDIF(WIN32)
 
 IF(UNIX)
-  IF(EXISTS "/usr/lib64" AND NOT IS_SYMLINK "/usr/lib64")
+  ##IF(EXISTS "/usr/lib64" AND NOT IS_SYMLINK "/usr/lib64")
     # Smil libraries should go to /usr/local/lib64
-    SET(LIBSUFFIX 64)
-  ELSE()
+  ##  SET(LIBSUFFIX 64)
+  ## ELSE()
     # Smil libraries should go to /usr/local/lib
-    SET(LIBSUFFIX)
+  ## TEST FOR ANACONDA PACKAGE 
+  SET(LIBSUFFIX)
   ENDIF(EXISTS "/usr/lib64" AND NOT IS_SYMLINK "/usr/lib64")
   SET(SMIL_LIBRARIES_INSTALL_PATH ${CMAKE_INSTALL_PREFIX}/lib${LIBSUFFIX}/${CMAKE_PROJECT_NAME})
   SET(SMIL_HEADERS_INSTALL_PATH ${CMAKE_INSTALL_PREFIX}/include/${CMAKE_PROJECT_NAME})
